@@ -1,0 +1,51 @@
+﻿@model ViewModels.CustomerListViewModel
+@{
+	ViewBag.Title = "مشتریان";
+	Layout = "~/Views/Shared/FrontEnd/_FronEndLayout.cshtml";
+}
+
+<section id="page-title">
+	<div class="container">
+		<div class="breadcrumb">
+			<ul>
+				<li><a href="/">خانه</a> </li>
+				<li class="active"><a href="#">مشتریان</a> </li>
+			</ul>
+		</div>
+		<div class="page-title">
+			<h1>مشتریان عهد ایران</h1>
+		</div>
+	</div>
+</section>
+
+
+<section>
+	<div class="container">
+		<div class="heading-text heading-section text-center">
+			<span class="lead">در این قسمت تعدادی از مشتریان عهد ایران را مشاهده می کنید.</span>
+		</div>
+		<ul class="grid grid-4-columns">
+			@foreach (var customer in Model.Customers)
+			{
+
+				<li>
+					<a data-content="@customer.Summery" title="" data-placement="top" data-toggle="popover" data-container="body" data-original-title="@customer.Title" data-trigger="hover">
+						<img src="@customer.ImageUrl" alt="@customer.Title">
+					</a>
+				</li>
+			}
+
+		</ul>
+	</div>
+</section>
+
+<section class="background-grey">
+	<div class="container">
+		<div class="text-center">
+			<h2>به مشتریان ما بپیوندید</h2>
+			<p class="lead">
+جهت دریافت لیست قیمت محصولات و خدمات عهد ایران و پیوستن به مشتریان ما با ما در تماس باشید.			</p>
+			<a class="btn icon-left" href="/contact"><span>تماس با ما</span></a>
+		</div>
+	</div>
+</section>
