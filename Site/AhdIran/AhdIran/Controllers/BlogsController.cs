@@ -8,6 +8,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Models;
+using ViewModels;
+
 //using ViewModels;
 
 namespace AhdIran.Controllers
@@ -175,19 +177,19 @@ namespace AhdIran.Controllers
             base.Dispose(disposing);
         }
 
-        //[Route("blog")]
-        //[AllowAnonymous]
-        //public ActionResult List()
-        //{
-        //    List<Blog> blogs = db.Blogs.Where(c => c.IsDeleted == false && c.IsActive)
-        //        .OrderByDescending(c => c.CreationDate).ToList();
+        [Route("blog")]
+        [AllowAnonymous]
+        public ActionResult List()
+        {
+            List<Blog> blogs = db.Blogs.Where(c => c.IsDeleted == false && c.IsActive)
+                .OrderByDescending(c => c.CreationDate).ToList();
 
-        //    BlogListViewModel blogList = new BlogListViewModel()
-        //    {
-        //        Blogs = blogs
-        //    };
-        //    return View(blogList);
-        //}
+            BlogListViewModel blogList = new BlogListViewModel()
+            {
+                Blogs = blogs
+            };
+            return View(blogList);
+        }
 
 
         //[Route("blog/{urlParam}")]
@@ -211,32 +213,30 @@ namespace AhdIran.Controllers
         //}
 
 
-        //[Route("blog/post/{urlParam}")]
-        //[AllowAnonymous]
-        //public ActionResult Details(string urlParam)
-        //{
+        [Route("blog/post/{urlParam}")]
+        [AllowAnonymous]
+        public ActionResult Details(string urlParam)
+        {
+            Blog blog = db.Blogs.FirstOrDefault(c => c.UrlParam == urlParam);
+            if (blog == null)
+            {
+                return Redirect("/blog");
+            }
 
-        //    Blog blog = db.Blogs.FirstOrDefault(c => c.UrlParam == urlParam);
-        //    if (blog == null)
-        //    {
-        //        return Redirect("/blog");
-        //    }
+            blog.Visit++;
+            db.SaveChanges();
 
-        //    blog.Visit++;
-        //    db.SaveChanges();
+            BlogDetailViewModel detail = new BlogDetailViewModel()
+            {
+                Blog = blog,
+                BlogComments = db.BlogComments.Where(c => c.BlogId == blog.Id && c.IsActive && c.IsDeleted == false)
+                    .ToList(),
+                RelatedBlogs = db.Blogs.Where(c =>
+                    c.IsDeleted == false && c.IsActive && c.BlogGroupId == blog.BlogGroupId && c.Id != blog.Id).ToList()
+            };
 
-        //    BlogDetailViewModel detail = new BlogDetailViewModel()
-        //    {
-        //        Blog = blog,
-        //        BlogComments = db.BlogComments.Where(c => c.BlogId == blog.Id && c.IsActive && c.IsDeleted == false).ToList(),
-        //        SidebarBlogGroups = db.BlogGroups.Where(c => c.IsActive && c.IsDeleted == false).ToList(),
-        //        SidebarRecentBlogs = db.Blogs.Where(c => c.IsActive && c.IsDeleted == false).OrderByDescending(c => c.CreationDate).Take(4).ToList(),
-        //        RelatedBlogs = GetRelatedBlog(blog.Tags,blog.Id)
-
-        //    };
-
-        //    return View(detail);
-        //}
+            return View(detail);
+        }
 
         //public List<Blog> GetRelatedBlog(string blogTags,Guid currentId)
         //{
@@ -245,7 +245,7 @@ namespace AhdIran.Controllers
         //    if (string.IsNullOrEmpty(blogTags))
         //    {
         //        result = db.Blogs.Where(c => c.IsDeleted == false && c.IsActive && c.Id != currentId).Take(2).ToList();
-                
+
         //        return result;
         //    }
 

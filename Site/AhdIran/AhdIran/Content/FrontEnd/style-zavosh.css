@@ -26,7 +26,8 @@ li a {
     direction: rtl;
 }
 
-.product .row, #myTab3, .breadcrumb ul {
+.product .row, #myTab3, .breadcrumb ul, #blog, #blog .post-item,
+.about .row{
     direction: rtl;
     text-align: right;
 }
@@ -34,4 +35,8 @@ li a {
 #home3 p {
     direction: rtl;
     text-align: justify;
+}
+
+#errorDivBlog, #SuccessDivBlog {
+    display: none;
 }

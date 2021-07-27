@@ -1,33 +1,25 @@
-﻿
+﻿@model ViewModels.HomeViewModel
 @{
 	Layout = "~/Views/Shared/FrontEnd/_FronEndLayout.cshtml";
 
 }
 
 <div id="slider" class="inspiro-slider" data-height-xs="360">
-		<!-- Slide 1 -->
-		<div class="slide" style="background-image:url('/images/slider/banner1.jpg');">
+	<!-- Slide 1 -->
+	@foreach (var slider in Model.Sliders)
+	{
+		<div class="slide" style="background-image:url('@slider.ImageUrl');">
 			<div class="container">
 				<div class="slide-captions text-light text-right">
 					<!-- Captions -->
-					<h1 data-caption-animation="rotateInUpLeft">پهنای باند اختصاصی</h1>
-					<p data-caption-animation="rotateInUpLeft" data-caption-delay="300">پهنای باند اختصاصی (اینترنت سازمانی) اسمارتک بر روی بستر ارتباطات رادیویی، فیبر نوری و همچنین VPLS شرکت ارتباطات زیرساخت برای مشترکین قابل استفاده است. </p>
+					<h1 data-caption-animation="rotateInUpLeft">@slider.Title</h1>
+					<p data-caption-animation="rotateInUpLeft" data-caption-delay="300">@slider.Summery</p>
 					<!-- end: Captions -->
 				</div>
 			</div>
 		</div>
-		<!-- end: Slide 1 -->
-		<!-- Slide 2 -->
-		<div class="slide" style="background-image:url('/images/slider/banner3.jpg');">
-			<div class="container">
-				<div class="slide-captions text-right text-light">
-					<!-- Captions -->
-					<h1 data-caption-animation="rotateInUpRight">اینتـرنت پرسـرعت بـرج‌ها و مجتمـع‌ها</h1>
-					<p data-caption-animation="rotateInUpRight">افراد و ساکنین مجتمع ها می توانند بدون فوت وقت و در سریعترین زمان ممکن از اینترنت پرسرعت بهره مند شوند.</p>
-					<!-- end: Captions -->
-				</div>
-			</div>
-		</div>
+	}
+	 
 	</div>
 
 		<section class="background-colored text-dark p-b-40">
@@ -158,32 +150,28 @@
 
 		<section class="p-t-150 background-grey p-b-150">
 			<div class="container home-customer">
-				<div class="row">
-					<div class="col-lg-7 m-b-30" data-animate="fadeInLeft">
-
-						<div class="carousel" data-items="1" data-lightbox="gallery">
-							<a href="/images/customer0.jpg" data-lightbox="gallery-image" title="Your image title here!"><img src="/images/customer0.jpg" alt=""></a>
-							<a href="/images/customer1.jpg" data-lightbox="gallery-image" title="Your image title here!"><img src="/images/customer1.jpg" alt=""></a>
-							<a href="/images/customer2.jpg" data-lightbox="gallery-image" title="Your image title here!"><img src="/images/customer2.jpg" alt=""></a>
-
-						</div>
-
+				 
+				
+					<div class="heading-text heading-section text-center">
+						<span class="lead">مشتریان عهد ایران</span>
 					</div>
-					<div class="col-lg-5 p-l-40 p-r-40" data-animate="fadeInRight">
-						<div class="m-b-40">
-							<h2>مشتریان اسمارتک</h2>
-							<p>شرکت عهد ایرانیان (اسمارتک) افتخار ارائه سرویس به سازمان های دولتی و خصوصی زیادی را در کارنامه خود دارد</p>
+					<ul class="grid grid-4-columns">
+						@foreach (var customer in Model.Customers)
+						{
 
-							<p> تعدادی از مشتریان ما را در تصویر رو به رو مشاهده می کنید.</p>
-						</div>
-						<a class="btn" href="#"><span>مشاهده همه مشتریان</span></a>
-					</div>
-				</div>
+							<li>
+								<a data-content="@customer.Summery" title="" data-placement="top" data-toggle="popover" data-container="body" data-original-title="@customer.Title" data-trigger="hover">
+									<img src="@customer.ImageUrl" alt="@customer.Title">
+								</a>
+							</li>
+						}
+
+					</ul> 
 			</div>
 
 		</section>
 
-		<section class="box-fancy section-fullwidth text-dark" style="background-image:url(/images/1.jpg);">
+		<section class="box-fancy section-fullwidth text-dark" style="background-image:url(/images/11.jpg);">
 
 
 

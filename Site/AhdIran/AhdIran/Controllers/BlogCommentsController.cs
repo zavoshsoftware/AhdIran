@@ -141,9 +141,9 @@ namespace AhdIran.Controllers
                 return Json("InvalidEmail", JsonRequestBehavior.AllowGet);
             else
             {
-
+                Guid id = new Guid(code);
                 Blog blog =
-                    db.Blogs.FirstOrDefault(c => c.UrlParam == code);
+                    db.Blogs.FirstOrDefault(c => c.Id == id);
 
                 if (blog != null)
                 {

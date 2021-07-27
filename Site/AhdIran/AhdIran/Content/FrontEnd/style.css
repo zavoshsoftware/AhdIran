@@ -6149,16 +6149,16 @@ Portfolio
 .comments .comment .image {
   border-radius: 65px;
   display: block;
-  float: left;
+  float: right;
   height: 65px;
   overflow: hidden;
   width: 65px;
 }
-.comments .comment .text {
-  padding: 0 0 0 86px;
-  min-height: 80px;
-  position: relative;
-}
+    .comments .comment .text {
+        padding: 0 86px 0 0;
+        min-height: 80px;
+        position: relative;
+    }
 .comments .comment .text .name {
   display: block;
   color: #303030;
@@ -6186,7 +6186,7 @@ Portfolio
   margin: 3px 0 0 0;
 }
 .comments .comment .comment {
-  margin-left: 90px;
+  margin-right: 90px;
 }
 
 .post-item .comments {

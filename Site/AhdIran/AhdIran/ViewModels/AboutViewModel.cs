@@ -6,10 +6,8 @@ using Models;
 
 namespace ViewModels
 {
-    public class HomeViewModel : _BaseViewModel
+    public class AboutViewModel : _BaseViewModel
     {
         public List<Customer> Customers { get; set; }
-        public List<Slider> Sliders { get; set; }
-
     }
 }
