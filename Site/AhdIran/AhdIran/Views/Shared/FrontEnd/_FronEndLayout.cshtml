@@ -8,7 +8,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="description" content="Themeforest Template Polo, html template">
+	<meta name="description" content="وب سایت رسمی شرکت عهد ایران، ارائه دهنده خدمات اینترنت پرسرعت و خدمات شبکه">
 	<link rel="canonical" href="@ViewBag.Canonical" />
 	<link rel="icon" type="image/png" href="/images/favicon.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,12 +22,10 @@
 
 <body>
 
-
-<!-- Body Inner -->
 <div class="body-inner">
 
 @Html.Partial("FrontEnd/_MenuPartial")
-	@RenderBody()
+@RenderBody()
 @Html.Partial("FrontEnd/_FooterPartial")
 
 	<div class="whatsappicon moving-div">
@@ -37,17 +35,11 @@
 	</div>
 
 </div>
-<!-- end: Body Inner -->
-<!-- Scroll top -->
 <a id="scrollTop"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>
-<!--Plugins-->
 <script src="/Scripts/FrontEnd/jquery.js"></script>
 <script src="/Scripts/FrontEnd/plugins.js"></script>
-
-<!--Template functions-->
 <script src="/Scripts/FrontEnd/functions.js"></script>
 @RenderSection("scripts", required: false)
 
 </body>
-
 </html>
