@@ -1,0 +1,93 @@
+﻿@model ViewModels.ContactViewModel
+@{
+		ViewBag.Title = "تماس با ما | عهد ایران";
+		Layout = "~/Views/Shared/FrontEnd/_FronEndLayout.cshtml";
+		ViewBag.Canonical = "https://ahdiran.com/contact";
+}
+@section head{
+	<style>
+		.contact-row {
+			direction: rtl;
+			text-align: right;
+		}
+	</style>
+}
+<section id="page-title">
+	<div class="container">
+		<div class="breadcrumb">
+			<ul>
+				<li><a href="/">خانه</a> </li>
+				<li class="active"><a href="#">تماس با ما</a> </li>
+			</ul>
+		</div>
+		<div class="page-title">
+			<h1>تماس با ما</h1>
+		</div>
+	</div>
+</section>
+
+
+<section>
+	<div class="container">
+		<div class="row contact-row">
+			<div class="col-lg-6">
+				<h3 class="text-uppercase">با ما در تماس باشید</h3>
+				<p>جهت ارتباط با کارشناسان شرکت عهد ایران می توانید از طریق راه های ارتباطی رو به رو در تماس باشید. همچنین با ارسال پیام از طریق فرم زیر ما را در ارائه خدمات بهتر یاری رسانید.</p>
+				<div class="m-t-30">
+					<form class="widget-contact-form" novalidate action="include/contact-form.php" role="form" method="post">
+						<div class="row">
+							<div class="form-group col-md-6">
+								<label for="name">نام</label>
+								<input type="text" aria-required="true" name="widget-contact-form-name" required class="form-control required name" placeholder="نام">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="email">ایمیل</label>
+								<input type="email" aria-required="true" name="widget-contact-form-email" required class="form-control required email" placeholder="ایمیل">
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-12">
+								<label for="subject">موضوع</label>
+								<input type="text" name="widget-contact-form-subject" required class="form-control required" placeholder="موضوع">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="message">پیام</label>
+							<textarea type="text" name="widget-contact-form-message" required rows="5" class="form-control required" placeholder="پیام شما"></textarea>
+						</div>
+						<!--  <div class="form-group">
+								<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+								<div class="g-recaptcha" data-sitekey="6LddCxAUAAAAAKOg0-U6IprqOZ7vTfiMNSyQT2-M"></div>
+						</div>  -->
+						<button class="btn" type="submit" id="form-submit"><i class="fa fa-paper-plane"></i>&nbsp;ارسال پیام</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<h3 class="text-uppercase">اطلاعات تماس</h3>
+				<div class="row">
+					<div class="col-lg-6">
+						<address>
+							<strong>آدرس</strong><br>
+							تهران، پونک،‌ خیابان اشرفی اصفهانی،<br>
+							کوچه خوش طینت، پلاک ۵،‌ واحد ۷<br>
+						 
+						</address>
+					</div>
+					<div class="col-lg-6">
+						<address>
+							<strong>تلفن تماس</strong><br>
+
+							<i class="fa fa-phone"></i> <a href="tel:00982191071100"> 021-91071100</a>
+							<br/>
+							<i class="fa fa-mobile"></i> <a href="tel:09229157300"> 09229157300</a>
+</address>
+					</div>
+				</div>
+				<!-- Google Map -->
+				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1925.2614482132576!2d51.33141140744909!3d35.75348621991091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1628343259962!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+				<!-- end: Google Map -->
+			</div>
+		</div>
+	</div>
+</section> 

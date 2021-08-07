@@ -21,11 +21,22 @@ namespace AhdIran.Controllers
             };
             return View(result);
         }
+        [Route("about")]
         public ActionResult About()
         {
             AboutViewModel result = new AboutViewModel()
             {
                 Customers = db.Customers.Where(c=>c.IsDeleted==false&&c.IsActive).Take(8).ToList()
+            };
+            return View(result);
+        }
+
+        [Route("Contact")]
+        public ActionResult Contact()
+        {
+            ContactViewModel result = new ContactViewModel()
+            {
+                //  Customers = db.Customers.Where(c=>c.IsDeleted==false&&c.IsActive).Take(8).ToList()
             };
             return View(result);
         }

@@ -1,12 +1,11 @@
 ﻿@model ViewModels.BlogDetailViewModel
 
 @{
-	ViewBag.Title = Model.Blog.Title;
-	Layout = "~/Views/Shared/FrontEnd/_FronEndLayout.cshtml";
-	ViewBag.Description = Model.Blog.Summery;
+		ViewBag.Title = Model.Blog.Title;
+		Layout = "~/Views/Shared/FrontEnd/_FronEndLayout.cshtml";
+		ViewBag.Description = Model.Blog.Summery;
+		ViewBag.Canonical = "https://ahdiran.com/blog/post/" + Model.Blog.UrlParam;
 }
-
-
 
 <section id="page-title">
 	<div class="container">
@@ -23,15 +22,11 @@
 	</div>
 </section>
 
-
 <section id="page-content" class="sidebar-right">
 	<div class="container">
 		<div class="row">
-			<!-- content -->
 			<div class="content col-lg-9">
-				<!-- Blog -->
 				<div id="blog" class="single-post">
-					<!-- Post single item-->
 					<div class="post-item">
 						<div class="post-item-wrap">
 							<div class="post-image">
@@ -67,7 +62,6 @@
 							</div>
 						 
 						 
-							<!-- Comments -->
 							<div class="comments" id="comments">
 								<div class="comment_number">
 									نظرات <span>(0)</span>
@@ -103,12 +97,8 @@
 										 
 										</div>
 									}
-									<!-- Comment -->
-							 
-									<!-- end: Comment -->
 								</div>
 							</div>
-							<!-- end: Comments -->
 							<div class="respond-form" id="respond">
 								<div class="respond-comment">
 									ثبت <span>نظر</span>
@@ -153,14 +143,10 @@
 							</div>
 						</div>
 					</div>
-					<!-- end: Post single item-->
 				</div>
 			</div>
-			<!-- end: content -->
-			<!-- Sidebar-->
 			<div class="sidebar sticky-sidebar col-lg-3">
 		 
-				<!--Tabs with Posts-->
 				<div class="widget">
 					<div class="tabs">
 						<ul class="nav nav-tabs" id="tabs-posts" role="tablist">
@@ -191,7 +177,6 @@
 				</div>
 			
 			</div>
-			<!-- end: Sidebar-->
 		</div>
 	</div>
 </section>
