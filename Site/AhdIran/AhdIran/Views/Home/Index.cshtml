@@ -1,6 +1,6 @@
 ﻿@model ViewModels.HomeViewModel
 @{
-	ViewBag.Title = "خدمات اینترنت عهد ایران";
+	ViewBag.Title = "وب سایت رسمی شرکت عهد ایرانیان";
 	Layout = "~/Views/Shared/FrontEnd/_FronEndLayout.cshtml";
 	ViewBag.Canonical = "https://ahdiran.com";
 }
@@ -28,25 +28,16 @@
 		<div class="row">
 			<div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="100">
 				<div class="heading-text heading-section">
-					<h1 class="text-medium">اسمارتک، ارائه دهنده خدمات سازمانی هوشمند</h1>
+					<h1 class="text-medium">@Model.Sec2Col1</h1>
 				</div>
 			</div>
 
 			<div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="300">
-				شرکت عهدایرانیان با نام تجاری اسمارتک، از سال 1395 با هدف فعالیت در زمینه فناوری اطلاعات و ارتباطات شروع به کار کرده است.
-				<br>
-				<br>
-
-
-				این شرکت در حال حاضر در زمینه ارائه خدمات شبکه های کامپیتور محلی و گسترده، بیسیم و کابلی، خدمات پهنای باند اختصاصی اینترنت، ایجاد بستر فیبر نوری خدمات مرکز داده و ایجاد بستر ADSL در برج ها و مراکز تجاری مشغول است
-
+				@Html.Raw(Model.Sec2Col2)
 			</div>
 
 			<div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="600">
-				هم اکنون این شرکت با ارائه سرویس های ADSL و VDSL، پهنای باند اختصاصی، اتصال نقطه به نقطه، اینترنت مرکزی برج ها و مجتمع ها را ارئه میدهد.
-				<br>
-				<br>
-				شرکت عهد ایرانیان برای توزیع پهنای باند اینترنت از طریق امواج وایرلس از بدو تاسیس شروع به راه اندازی سایت های مختلف در اقصی نقاط شهر تهران نموده است
+				@Html.Raw(Model.Sec2Col3)
 			</div>
 
 		</div>
@@ -65,83 +56,19 @@
 			</div>
 			<div class="col-lg-8">
 				<div class="row">
-					<div class="col-lg-6" data-animate="flipInY" data-animate-delay="100">
-						<div class="icon-box effect small clean">
-							<div class="icon">
-								<a href="#"><i class="fa fa-check"></i></a>
+
+					@foreach (var feature in Model.Features)
+					{
+						<div class="col-lg-6" data-animate="flipInY" data-animate-delay="100">
+							<div class="icon-box effect small clean">
+								<div class="icon">
+									<a href="#"><i class="@feature.Name"></i></a>
+								</div>
+								<h3>@feature.Title</h3>
+								<p>@feature.Summery</p>
 							</div>
-							<h3>	 بالاترین کیفیت</h3>
-							<p>دستیابی به بالاترین کیفیت خدمات به دلیل کوتاه شدن مسیرهای ارتباطی</p>
 						</div>
-					</div>
-					<div class="col-lg-6" data-animate="flipInY" data-animate-delay="200">
-						<div class="icon-box effect small clean">
-							<div class="icon">
-								<a href="#"><i class="fa fa-clock"></i></a>
-							</div>
-
-
-							<h3>تحویل ۴۸ ساعته سرویس</h3>
-							<p>
-								ارائه سرویس در کمتر از ۴۸ ساعت، بدون وابستگی و طی کردن مراحل اداری معمول
-							</p>
-						</div>
-					</div>
-					<div class="col-lg-6" data-animate="flipInY" data-animate-delay="400">
-						<div class="icon-box effect small clean">
-							<div class="icon">
-								<a href="#"><i class="fa fa-edit"></i></a>
-							</div>
-
-
-							<h3>شخصی‌سازی سرویس</h3>
-							<p>
-								شخصی‌سازی سرعت و حجم سرویس و مدیریت یکپارچه آن برای هر مشترک
-							</p>
-						</div>
-					</div>
-
-					<div class="col-lg-6" data-animate="flipInY" data-animate-delay="600">
-						<div class="icon-box effect small clean">
-							<div class="icon">
-								<a href="#"><i class="fa fa-chart-line"></i></a>
-							</div>
-
-
-							<h3>
-								سرعت بسیار بالا
-							</h3>
-							<p>
-								سرعت بسیار بالای این سرویس در مقایسه با سرعت و کیفیت محدود سرویس‌های ADSL معمول
-							</p>
-						</div>
-					</div>
-					<div class="col-lg-6" data-animate="flipInY" data-animate-delay="800">
-						<div class="icon-box effect small clean">
-							<div class="icon">
-								<a href="#"><i class="fa fa-desktop"></i></a>
-							</div>
-							<h3>
-								سرعت بسیار بالا
-
-
-							</h3>
-							<p>استقرار رایگان تجهیزات در محل برج یا مجتمع</p>
-						</div>
-					</div>
-					<div class="col-lg-6" data-animate="flipInY" data-animate-delay="1000">
-						<div class="icon-box effect small clean">
-							<div class="icon">
-								<a href="#"><i class="fa fa-phone"></i></a>
-							</div>
-
-							<p>
-								پشتیبانی شبانه‌روزی اسمارتک در تمام روزهای سال
-							</p>
-						</div>
-					</div>
-
-
+					}
 
 				</div>
 			</div>
@@ -182,36 +109,17 @@
 		</h2>
 	</div>
 	<div class="row">
-		<div class="col-lg-3 text-center">
-			<h1 class="text-lg text-uppercase">01.</h1>
-			<h3>ارسال درخواست</h3>
-			<span>
-				ارسال درخواست سرویس اینترنت برج‌ها از طریق تماس با بخش فروش شرکت اسمارتک و یا ثبت درخواست به صورت حضوری در شرکت.
-			</span>
-		</div>
+		@foreach (var item in Model.Process)
+		{
 
-		<div class="col-lg-3 text-center">
-			<h1 class="text-lg text-uppercase">02.</h1>
-			<h3> امکان‌سنجی</h3>
-			<span>
-				انجام بازدید اولیه توسط کارشناسان اسمارتک و تکمیل اطلاعات لازم و امکان سنجی و تخمین هزینه تجهیزات مورد نیاز
-			</span>
-		</div>
-
-		<div class="col-lg-3 text-center">
-			<h1 class="text-lg text-uppercase">03.</h1>
-			<h3> تنظیم قرارداد</h3>
-			<span>انجام توافقات نهایی و انتخاب پکیح مورد نیاز و انعقاد قرارداد با مدیریت برج یا مجتمع</span>
-		</div>
-
-		<div class="col-lg-3 text-center">
-			<h1 class="text-lg text-uppercase">04.</h1>
-			<h2> نصب و راه‌اندازی</h2>
-			<span>
-				نصب و راه‌اندازی تجهیزات مربوطه و شروع استفاده از سرویس های قدرتمند شرکت اسمارتک
-
-			</span>
-		</div>
+			<div class="col-lg-3 text-center">
+				<h1 class="text-lg text-uppercase">@item.Name.</h1>
+				<h3>@item.Title</h3>
+				<span>
+@item.Summery				</span>
+			</div>
+		}
+ 
 	</div>
 </section>
 
@@ -222,34 +130,39 @@
 				<h4 class="m-b-20">ارائه بهترین خدمات</h4>
 
 				<p class="lead">
-
-					به لطف پوشش، کیفیت و سرعت بالای سرویسهای اینترنت و پشتیبانی شبانهروزی
-					توانسته است در مدت زمان کوتاهی به موفقیتهای بزرگی نائل گردد که رضایتمندی 95 درصدی مشتریانمان شاهد این ادعا
-					میباشد. این شرکت امیدوار است تا در مسیر تعالی خویش به ارز شهای سازمانی خود متعهد بماند و میکوشد تا در تمام کشور
-					به مشتریان خود خدماتی ارزنده و نوآورانه ارائه نماید.
+@Html.Raw(Model.ServiceText)
 				</p>
 			</div>
 			<div class="col-lg-4">
 				<h4 class="m-b-20">ارزش های سازمانی ما</h4>
 				<div class="accordion fancy radius clean">
-					<div class="ac-item ac-active">
-						<h5 class="ac-title"><i class="fa fa-rocket"></i>مشتری مداری و ارتقای دائمی خدمات رسانی به مشتریان</h5>
-						<div class="ac-content ac-active">
-							لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
-						</div>
-					</div>
-					<div class="ac-item">
-						<h5 class="ac-title"><i class="fa fa-heart"></i>مشارکت و توسعه کارکنان و پایبندی به ارزش های مشترک و فرهنگ اعتماد متقابل</h5>
-						<div class="ac-content">
-							لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
-						</div>
-					</div>
-					<div class="ac-item">
-						<h5 class="ac-title"><i class="fa fa-shopping-cart"></i>یادگیری و نوآوری مداوم</h5>
-						<div class="ac-content">
-							لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
-						</div>
-					</div>
+					@{
+						int j = 1;
+						foreach (var value in Model.Values)
+						{
+							if (j == 1)
+							{
+								<div class="ac-item ac-active">
+									<h5 class="ac-title"><i class="fa fa-rocket"></i>@value.Title</h5>
+									<div class="ac-content ac-active">
+								@value.Summery
+								</div>
+								</div>
+							}
+							else
+							{
+								<div class="ac-item">
+									<h5 class="ac-title"><i class="fa fa-heart"></i>@value.Title</h5>
+									<div class="ac-content">
+										@value.Summery									</div>
+								</div>
+							}
+							j++;
+						}
+					}
+					
+				
+			 
 				</div>
 			</div>
 			<div class="col-lg-4">
@@ -287,21 +200,20 @@
 					<div class="col-lg-6 m-b-30">
 						<address>
 							<strong>دفتر مرکزی:</strong><br>
-							تهران، پونک،‌ خیابان اشرفی اصفهانی،<br>
-							کوچه خوش طینت، پلاک ۵،‌ واحد ۷<br>
+							@Html.Raw(Model.Address)
 						</address>
-						<strong>تلفن:</strong>  <a href="tel:00982191071100"> 91071100-021</a>
+						<strong>تلفن:</strong>  <a href="tel:00982191071100"> @Model.Phone</a>
 						<br>
 					 
-						<strong>ایمیل:</strong> info@ahdiran.com
+						<strong>ایمیل:</strong> @Model.Email
 					</div>
 
 					<div class="col-lg-12 m-b-30">
 						<h4>ما را در شبکه های اجتماعی دنبال کنید</h4>
 						<div class="social-icons social-icons-light social-icons-colored-hover">
 							<ul>
-								<li class="social-twitter"><a target="_blank" href="https://t.me/smartech._net"><i class="fab fa-telegram"></i></a></li>
-								<li class="social-instagram"><a target="_blank" href="https://instagram.com/smartech._net"><i class="fab fa-instagram"></i></a></li>
+								<li class="social-twitter"><a target="_blank" href="@Model.Telegram"><i class="fab fa-telegram"></i></a></li>
+								<li class="social-instagram"><a target="_blank" href="@Model.Instagram"><i class="fab fa-instagram"></i></a></li>
 								<li class="social-snapchat"><a target="_blank" href="https://api.whatsapp.com/send?phone=09229157300&text=%D8%B3%D9%84%D8%A7%D9%85%20%D9%88%20%D9%88%D9%82%D8%AA%20%D8%A8%D8%AE%DB%8C%D8%B1"><i class="fab fa-whatsapp"></i></a></li>
 							</ul>
 						</div>
