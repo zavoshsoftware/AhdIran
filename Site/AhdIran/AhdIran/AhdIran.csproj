@@ -4798,6 +4798,7 @@
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\CustomerListViewModel.cs" />
+    <Compile Include="ViewModels\ImageBrowserController.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ServiceDetailViewModel.cs" />
     <Compile Include="ViewModels\_BaseViewModel.cs" />
@@ -5178,6 +5179,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\Blog\" />
     <Folder Include="Uploads\customer\" />
+    <Folder Include="Uploads\Editor\" />
     <Folder Include="Uploads\service\" />
     <Folder Include="Uploads\Slider\" />
   </ItemGroup>
