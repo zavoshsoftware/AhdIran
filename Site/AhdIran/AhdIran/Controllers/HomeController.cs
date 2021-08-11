@@ -71,5 +71,15 @@ namespace AhdIran.Controllers
             };
             return View(result);
         }
+        public ActionResult AdslPriceList()
+        {
+            _BaseViewModel model = new _BaseViewModel();
+            return View(model);
+        }
+        public ActionResult WifiPriceList()
+        {
+            _BaseViewModel model = new _BaseViewModel();
+            return View(model);
+        }
     }
 }
