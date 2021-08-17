@@ -71,6 +71,7 @@ namespace AhdIran.Controllers
             };
             return View(result);
         }
+        [Route("price")]
         public ActionResult AdslPriceList()
         {
             _BaseViewModel model = new _BaseViewModel();
