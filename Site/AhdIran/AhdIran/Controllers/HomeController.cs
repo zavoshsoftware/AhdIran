@@ -76,7 +76,16 @@ namespace AhdIran.Controllers
         {
             _BaseViewModel model = new _BaseViewModel();
             return View(model);
+        } 
+        
+       
+        [Route("adslprice")]
+        public ActionResult AdslPriceList2()
+        {
+            _BaseViewModel model = new _BaseViewModel();
+            return View(model);
         }
+
         public ActionResult WifiPriceList()
         {
             _BaseViewModel model = new _BaseViewModel();
