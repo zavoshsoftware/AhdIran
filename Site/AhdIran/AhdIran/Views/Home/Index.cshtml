@@ -47,8 +47,8 @@
 <section class="text-light" style="background: transparent url(/images/polygon/1.jpg);">
 	<div class="container features-box">
 		<div class="row">
-			<div class="col-lg-4">
-				<div class="col-lg-4" data-animate="fadeIn">
+			<div class="col-lg-4" style="border-left:4px solid">
+				<div data-animate="fadeIn">
 					<div class="heading-text heading-section">
 						<h1 class="text-medium">بهترین خدمات شایسته شما است</h1>
 					</div>
@@ -83,7 +83,16 @@
 		<div class="heading-text heading-section text-center">
 			<span class="lead">مشتریان عهد ایرانیان</span>
 		</div>
-		<ul class="grid grid-4-columns">
+		<div class="carousel client-logos" data-items="6" data-items-sm="4" data-items-xs="3" data-items-xxs="2" data-margin="20" data-arrows="false" data-autoplay="true" data-autoplay="3000" data-loop="true">
+			
+		@foreach (var customer in Model.Customers)
+		{
+			<div>
+				<a href="#">	<img src="@customer.ImageUrl" alt="@customer.Title"> </a>
+			</div>
+		}
+		</div>
+		@*<ul class="grid grid-4-columns">
 			@foreach (var customer in Model.Customers)
 			{
 
@@ -94,12 +103,16 @@
 				</li>
 			}
 
-		</ul>
+		</ul>*@
 	</div>
 
 </section>
 
-<section class="box-fancy section-fullwidth text-dark" style="background-image:url(/images/11.jpg);">
+<section class="box-fancy section-fullwidth text-dark" style="  background: url(/images/11.jpg) no-repeat center center fixed; 
+	                                                            -webkit-background-size: cover;
+	                                                            -moz-background-size: cover;
+	                                                            -o-background-size: cover;
+	                                                            background-size: cover;">
 
 
 
